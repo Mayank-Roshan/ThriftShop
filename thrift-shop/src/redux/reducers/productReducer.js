@@ -13,3 +13,14 @@ export const productReducer = (state=initialState,{type,payload}) => {
             return state;
     }
 }
+
+export const selectedProductReducer = (state={},{type,payload}) => {
+    switch (type) {
+        case ActionTypes.SELECTED_PRODUCT:
+            return {...state,...payload};
+        case ActionTypes.REMOVE_SELECTED_PRODUCT:
+            return {};//We do this so that when the component is destroyed when can remove the selected product
+        default:
+            return state;
+    }
+}
